@@ -1,8 +1,6 @@
 class JwtService
   # Use Rails secret key base from credentials or fallback
-  SECRET_KEY = Rails.application.credentials.secret_key_base ||
-               Rails.application.secret_key_base
-                # || 'fallback_secret_key_change_in_production'
+  SECRET_KEY = Rails.application.credentials.dig(:jwt_secret)
 
   def self.encode(payload, exp = 1.hour.from_now)
     payload[:exp] = exp.to_i
