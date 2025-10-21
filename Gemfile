@@ -51,4 +51,5 @@ end
 
 group :development do
   gem 'listen', '~> 3.3'
+  gem 'pry'
 end
